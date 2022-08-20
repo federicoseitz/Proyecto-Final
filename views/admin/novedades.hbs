@@ -1,8 +1,54 @@
 <div class="container" style="margin:50px auto ">
     <div class="row">
         <div class="col">
-             <p>Hola {{usuario}}!!</p>
-             <a href="/admin/login/logout" type="button" class="btn btn-danger" style="margin-left: 500px;">Cerrar sesión</a>
+            <p id="hola">Hola {{usuario}}!!</p>
+            <a href="/admin/login/logout" type="button" class="btn btn-danger" style="float:right">Cerrar
+                sesión<i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>
-    </div> 
+    </div>
+</div>
+{{! Fin fila 1}}
+{{! Incio fila 2}}
+<div class="container" style="margin:50px auto ">
+    <div class="row">
+        <div class="col">
+            <h2>Listado de Novedades</h2>
+            <a href="/admin/novedades/agregar" type="button" class="btn btn-success" style="float:right;">
+                Nuevo <i class="fa-solid fa-plus"></i></a>
+        </div>
+    </div>
+</div>
+{{! Fin fila 2}}
+
+{{! Incio fila 3}}
+<div class="container">
+    <div class="row">
+        <table class="table" class="table table-striped">
+            <thead>
+                <tr class="table-info">
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col" class=" text-right">Subtitulo</th>
+                    <th scope="col">Cuerpo</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each novedades}}
+                <tr class="table-primary">
+                    <th scope="row">{{id}}</th>
+                    <td>{{titulo}}</td>
+                    <td>{{subtitulo}}</td>
+                    <td>{{cuerpo}}</td>
+                    <td class="text-right">
+                        <a href="/admin/novedades/modificar/{{id}}"class="btn btn-secondary">
+                            <i class="fa-solid fa-pencil"></i></a>
+                        <a href="/admin/novedades/eliminar/{{id}}" class="btn btn-secondary">
+                            <i class="fa-solid fa-trash-can"></i></a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
 </div>
