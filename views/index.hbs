@@ -1,17 +1,17 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Cerveceria Beer</a>
+    <a class="navbar-brand" href="#">Cerveceria Malas Pulgas</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" data-scroll href="#home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-scroll data-scroll href="#novedades">Novedades</a>
+          <a class="nav-link" data-scroll href="#novedades">Novedades</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-scroll href="#historia">Historia</a>
@@ -28,65 +28,51 @@
 <div class="conatiner-fluid">
   <div id="home" class="row align-items-center hero">
     <div class="col-lg-4 offset-lg-1">
-      <p>CERVECERIA X</p>
+      <p>MALAS PULGAS</p>
       <h1>UN LUGAR PARA DISFRUTAR</h1>
       <p>
         Utilizamos Las Mejores Materias Primas Asegurando La Mayor Calidad De Nuestra Cerveza. Directo Desde Fábrica.
       </p>
     </div>
   </div>
-</div> 
+</div>
 <!-- NOVEDADES -->
-<div id="novedades" class="row py-4">
-  <div class="col-md-5 offset-md-2 py-3">
-    <h2>Novedades</h2>
-    <ul class="lista-novedades">
-      {{#each novedades}}
-      <li>
-        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#Modal{{id}}"><img
-            src="{{imagen}}">{{titulo}}</a>
-      </li>
-      {{/each}}
-      <!-- Modal -->
-      {{#each novedades}}
-      <div class="modal fade" id="Modal{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">{{titulo}}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h6>{{subtitulo}}</h6>
-              <p>{{cuerpo}}</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<div class="container-md">
+  <div id="novedades" class="row py-4">       
+    <div class="col-md-12 py-3">
+      <h2>Novedades</h2>
+      <ul class="lista-novedades">
+        {{#each novedades}}
+        <li>
+          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#Modal{{id}}"><img src="{{imagen}}"
+              style="width:120px; height:120px;">{{titulo}}</a>
+        </li>
+        {{/each}}
+        <!-- Modal -->
+        {{#each novedades}}
+        <div class="modal fade" id="Modal{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{titulo}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="{{imagen}}" width="60">
+                <h6>{{subtitulo}}</h6>
+                <p>{{cuerpo}}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      {{/each}}
-    </ul>
+        {{/each}}
+      </ul>
+    </div>
   </div>
-<!-- CARD -->
-<div class="col-md-3">
- <div class="card">
-    <img src="images/premio.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">ORGULLOSOS</h5>
-      <p class="card-text">Cerveceria X comezo a funcionar en 1908 bajo el liderazgo de Pepito el pistolero.</p>
-      <p></p>
-      <p id="orgullo">
-    El equipo de Cerveceria recibio el premio como campeón de la Copa Argentina de Cervezas 2021. Cuatro Cerros
-    ganó una medalla dorada en la categoría Hazy Ipa y otro oro en Wild/Sour, una plata y un bronce en la categoría
-    Dark Belgian
-    </p>
-    <a href="/galeria" class="btn btn-primary">MAS FOTOS</a>
-  </div>
-  </div>
-  </div>
-  </div>
+</div>
 <!-- CAROUSEL -->
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
   <div class="carousel-indicators">
@@ -129,29 +115,28 @@
 </div>
 <!-- FIN CAROUSEL -->
 <!-- HISTORIA -->
+<div class="container-md">
 <div id="historia" class="row align-items-center py-4">
-  <div class="col-lg-2 col-md-3 offset-lg-2 d-none d-sm-block">
-    <img src="images/cerveceros_soria.jpg" alt="cerveceros_soria" class="img-fluid">
-  </div>
-  <div class="col-lg-2 col-md-3 offset-lg-2 d-none d-sm-block">
-    <img src="images/historia2.jpeg" alt="historia2" class="img-fluid">
-  </div>
-  <div class="col-12 d-sm-none">
-    <img src="images/historia3.jpg" alt="historia3" class="img-fluid">
-  </div>
-  <div class="col-lg-4  col-md-6 mt-4 mt-sm-0">
+  <div class="col-lg-12  col-md-12">
     <h2 class="animate__animated animate__bounce">HISTORIA</h2>
-    <P>La Cervecería X fue fundada en el año 1890 por Don Otto Sebastian Bemberg. El 31 de octubre de 1890 se sirvió
+    <P>La Cervecería Malas Pulgas fue fundada en el año 1890 por Don Otto Sebastian Bemberg. El 31 de octubre de 1890 se
+      sirvió
       el primer chopp y desde entonces las siguientes generaciones continuaron con el legado.</P>
+    <p>El equipo de Cerveceria recibio el premio como campeón de la Copa Argentina de Cervezas 2021. Cuatro Cerros
+      ganó una medalla dorada en la categoría Hazy Ipa y otro oro en Wild/Sour, una plata y un bronce en la categoría
+      Dark Belgian</p>
   </div>
+</div>
+<button type="button" class="btn btn-outline-primary"><a id="btn-galeria" href="/galeria">Galeria</a></button>
 </div>
 <!-- FIN HISTORIA -->
 <!-- NOSOTROS -->
 <div id="nosotros" class="row-align-items-stretch my-3 staff py-4">
-  <div class="col-lg-8 offset-lg-2">
-    <h2 class="animate__animated animate__bounce">NOSOTROS</h2>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col">
+  <div class="container-md">
+  <div class="col-lg-12">
+    <h2 id="nos">NOSOTROS</h2>
+    <div class="row">
+      {{!-- <div class="col">
         <div class="card">
           <img src="images/catador.jpg" class="card-img-top" alt="...">
           <div class="card-body">
@@ -160,7 +145,7 @@
               content. This content is a little bit longer.</p>
           </div>
         </div>
-      </div>
+      </div> --}}
       <div class="col">
         <div class="card">
           <img src="images/fabricador.jpg" class="card-img-top" alt="...">
@@ -193,10 +178,12 @@
       </div>
     </div>
   </div>
+  </div>
 </div>
 <!-- FIN NOSOTROS -->
 <!-- CONOCEMOS -->
-<div id="conocemos" class="row py4">
+<div class="container-md mt-3">
+<div id="conocemos" class="row  py4">
   <div class="col-md-4 ofsset-md-2">
     <h2>VISITANOS</h2>
     <div class="embed-responsive embed-responsive-16by9">
@@ -209,7 +196,7 @@
   <!--Cierra mapa-->
   <div class="col-md-4 mt-4 mt-sm-0 ms-md-auto">
     <h2>CONTACTENOS</h2>
-    <form action="/" method="post" class="row g-3">
+    <form action="/" method="post" id= "contact_form" class="row g-3">
       <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="nombre" placeholder="......." name="nombre">
@@ -233,12 +220,14 @@
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Enviar</button>
       </div>
+      <span id="feedback"></span>
     </form>
     {{#if message}}
     <p>{{message}}</p>
     {{/if}}
     <!--cierra form-->
   </div>
+</div>
 </div>
 <footer>
   <p class="text-center">Diseñado por Federico Seitz</p>

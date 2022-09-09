@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-6 offset-3">
             <h4>Modificar la novedad</h4>
-            <form method="post"  action="/admin/novedades/modificar">
+            <form method="post"  action="/admin/novedades/modificar" enctype="multipart/form-data">
             <input type="hidden" value="{{novedad.id}}" name="id">
                 <div class="mb-3">
                     <div class="form-floating">
@@ -17,6 +17,19 @@
                             name="subtitulo" style="height: 100px">{{novedad.subtitulo}}</textarea>
                         <label for="floatingTextarea2">Subtitulo</label>
                     </div>
+                </div>
+                <div class="input-group mb-3">
+                    <p>
+                        <label>Imagen:
+                    <input type="file" class="form-control" name="imagen" id="inputGroupFile02">
+                    </label>
+                    </p>
+                    <label>
+                    <p>
+                    <input type="checkbox" class="form-check-input mt-0" name="img_delete" id="inputGroupFile02" value="1">
+                    Eliminar imagen actual?</label>  
+                    <input type="hidden" name="img_original" value="{{novedad.img_id}}">
+                    </p>
                 </div>
                 <div class="mb-3">
                     <div class="form-floating">

@@ -13,8 +13,14 @@
     <div class="row">
         <div class="col">
             <h2>Listado de Novedades</h2>
-            <a href="/admin/novedades/agregar" type="button" class="btn btn-success" style="float:right;">
+            <a href="/admin/novedades/agregar" type="button" class="btn btn-success" style="float:left;">
                 Nuevo <i class="fa-solid fa-plus"></i></a>
+        </div>
+        <div class="col-3 text-right">
+            <form class="d-flex" action="/admin/novedades" method="get">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" {{#if q}}value="{{q}}"{{/if}}>
+                <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
         </div>
     </div>
 </div>
@@ -43,14 +49,20 @@
                     <td>{{{imagen}}}</td>
                     <td>{{cuerpo}}</td>
                     <td class="text-right">
-                        <a href="/admin/novedades/modificar/{{id}}"class="btn btn-secondary">
+                        <a href="/admin/novedades/modificar/{{id}}" class="btn btn-secondary">
                             <i class="fa-solid fa-pencil"></i></a>
-                        <a href="/admin/novedades/eliminar/{{id}}" class="btn btn-secondary">
+                        <a href="/admin/novedades/eliminar/{{id}}" class="btn btn-secondary" style="margin-top: 100px;">
                             <i class="fa-solid fa-trash-can"></i></a>
                     </td>
                 </tr>
                 {{/each}}
             </tbody>
         </table>
+        {{#if is_search}}
+        {{#unless novedades.lenght}}
+        No se encontraron resultados para "<b>{{q}}</b>"
+        {{/unless}}
+        {{/if}}
+        
     </div>
 </div>

@@ -7,11 +7,11 @@ var cloudinary = require('cloudinary').v2;
 /* GET home page. */
 router.get('/', async function(req, res, next) {
 
-  var novedades = await novedadesModel.getNovedades(); 
+    novedades = await novedadesModel.getNovedades(); 
     novedades = novedades.splice(0,5);
     novedades = novedades.map(novedad => {
       if (novedad.img_id) {
-        const imagen = cloudinary.image(novedad.img_id, {
+        const imagen = cloudinary.url(novedad.img_id, {
           widht: 460,
           crop: 'fill'
         });
@@ -19,8 +19,7 @@ router.get('/', async function(req, res, next) {
           ...novedad,
           imagen
         }
-      }
-      else {
+      } else {
         return {
           ...novedad,
           imagen: '/images/imagen-no-disponible.jpg'
@@ -61,8 +60,12 @@ var transporter = nodemailer.createTransport({
 
 var info = await transporter.sendMail(obj);
 
-res.render('index', {
-  message: 'Mensaje enviado correctamente'
+//res.render('index', {
+  //message: 'Mensaje enviado correctamente'
+//});
+
+res.json({
+  message: 'Mensaje enviado correctamente',
 });
 
 }); //cierra peticion del post
