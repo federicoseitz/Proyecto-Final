@@ -7,20 +7,6 @@
 body {
   font-family: "Alfa Slab One", cursive;
 }
-h1{
-  font-weight: 400;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 40px;
-}
-
-.linea{
-  background: #550b51;
-  height: 5px;
-  width: 100%;
-  display: block;
-
-}
 
 .galeria{
   display: grid;
@@ -115,3 +101,8 @@ h1{
   }
 }
 
+footer {
+  background-color: grey;
+  height: 60px;
+  padding: 20px;
+}
